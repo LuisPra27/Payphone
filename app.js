@@ -63,19 +63,11 @@ function actualizarInterfazCarrito() {
 
     // Limpiar lista actual
     contenedorLista.innerHTML = '';
-    
-    let sumaBase = 0;
-    let sumaGravado = 0;
-    let sumaIva = 0;
-    let sumaTotal = 0;
+
+    const { sumaBase, sumaGravado, sumaIva, sumaTotal } = calcularTotales(carrito);
 
     // Recorrer carrito
     carrito.forEach((item, index) => {
-        sumaBase += item.baseCents;
-        sumaGravado += item.gravadoCents;
-        sumaIva += item.ivaCents;
-        sumaTotal += item.totalCents;
-
         // Agregar a la lista visual con el botón de eliminar
         const div = document.createElement('div');
         div.className = 'cart-item';

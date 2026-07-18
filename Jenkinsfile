@@ -28,7 +28,7 @@ pipeline {
                 sh '''
                     rm -rf build
                     mkdir -p build
-                    cp index.html app.js styles.css response.php build/
+                    cp index.html app.js cart-calc.js styles.css response.php build/
                 '''
             }
         }
@@ -38,15 +38,8 @@ pipeline {
                 echo 'Validando sintaxis PHP (contenedor php:cli)'
                 sh 'docker run --rm --volumes-from "$HOSTNAME" -w "$WORKSPACE" php:8.2-cli php -l response.php'
 
-                echo 'Verificando funciones clave en app.js'
-                sh '''
-                    for fn in renderizarCatalogo agregarAlCarrito actualizarInterfazCarrito eliminarDelCarrito renderizarBotonPayphone; do
-                        grep -q "function ${fn}" app.js || { echo "Falta la funcion ${fn} en app.js"; exit 1; }
-                    done
-                '''
-
-                echo 'Verificando estructura basica de index.html'
-                sh 'grep -qi "<!DOCTYPE html>" index.html'
+                echo 'Ejecutando pruebas unitarias de la logica del carrito (Node test runner)'
+                sh 'docker run --rm --volumes-from "$HOSTNAME" -w "$WORKSPACE" node:20-alpine node --test'
             }
         }
 

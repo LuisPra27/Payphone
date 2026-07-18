@@ -5,6 +5,6 @@ RUN apt-get update \
     && docker-php-ext-install curl \
     && rm -rf /var/lib/apt/lists/*
 
-COPY index.html styles.css app.js response.php /var/www/html/
+COPY index.html styles.css app.js cart-calc.js response.php /var/www/html/
 
 EXPOSE 80
