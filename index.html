@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Tienda Principal - Modular</title>
+    
+    <link rel="stylesheet" href="styles.css">
+    
+    <link rel="stylesheet" href="https://cdn.payphonetodoesposible.com/box/v2.0/payphone-payment-box.css">
+    
+    <script type="module" src="https://cdn.payphonetodoesposible.com/box/v2.0/payphone-payment-box.js"></script>
+</head>
+<body>
+
+    <header>
+        <h2>🛒 Mi Tienda Principal</h2>
+        <div>Práctica de Integración</div>
+    </header>
+
+    <div class="container">
+        <div class="storefront">
+            <h2>Catálogo de Productos</h2>
+            <div class="products-grid" id="catalogo-productos">
+                </div>
+        </div>
+
+        <div class="checkout-panel">
+            <h3>Resumen de Compra</h3>
+            
+            <div id="lista-carrito">
+                <div class="empty-cart">Tu carrito está vacío</div>
+            </div>
+
+            <div class="cart-summary">
+                <div class="summary-row">
+                    <span>Subtotal (Base 0%)</span>
+                    <span id="res-base">$0.00</span>
+                </div>
+                <div class="summary-row">
+                    <span>Subtotal (Gravado 15%)</span>
+                    <span id="res-gravado">$0.00</span>
+                </div>
+                <div class="summary-row">
+                    <span>IVA (15%)</span>
+                    <span id="res-iva">$0.00</span>
+                </div>
+                <div class="total-row">
+                    <span>Total a pagar:</span>
+                    <span id="res-total">$0.00</span>
+                </div>
+            </div>
+
+            <div id="pp-button"></div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

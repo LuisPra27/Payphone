@@ -1,0 +1,4 @@
+deploy_simulado/
+*.log
+.DS_Store
+Thumbs.db
