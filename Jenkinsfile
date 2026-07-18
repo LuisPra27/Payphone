@@ -11,6 +11,8 @@ pipeline {
 
     environment {
         DEPLOY_DIR = 'deploy_simulado'
+        CONTAINER_NAME = 'payphone-app'
+        HOST_PORT = '8081'
     }
 
     stages {
@@ -50,12 +52,12 @@ pipeline {
 
         stage('Deploy') {
             steps {
-                echo "Desplegando build #${env.BUILD_NUMBER} (simulado)"
+                echo "Desplegando build #${env.BUILD_NUMBER} en contenedor Docker (puerto ${HOST_PORT})"
                 sh '''
-                    mkdir -p ${DEPLOY_DIR}
-                    rm -rf ${DEPLOY_DIR}/current
-                    cp -r build ${DEPLOY_DIR}/current
-                    echo "Build #${BUILD_NUMBER} desplegado el $(date)" >> ${DEPLOY_DIR}/deploy.log
+                    docker build -t payphone:latest .
+                    docker stop ${CONTAINER_NAME} || true
+                    docker rm ${CONTAINER_NAME} || true
+                    docker run -d --name ${CONTAINER_NAME} -p ${HOST_PORT}:80 payphone:latest
                 '''
             }
         }
