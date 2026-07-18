@@ -34,7 +34,7 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Validando sintaxis PHP (contenedor php:cli)'
-                sh 'docker run --rm -v "$WORKSPACE":/app -w /app php:8.2-cli php -l response.php'
+                sh 'docker run --rm --volumes-from "$HOSTNAME" -w "$WORKSPACE" php:8.2-cli php -l response.php'
 
                 echo 'Verificando funciones clave en app.js'
                 sh '''
