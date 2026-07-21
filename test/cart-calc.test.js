@@ -1,7 +1,7 @@
 const { calcularTotales } = require('../cart-calc.js');
 
 describe('Calculo de totales del carrito', () => {
-    it('carrito vacio retorna todos los totales en cero', () => {
+    it('Carrito vacio retorna todos los totales en cero', () => {
         const resultado = calcularTotales([]);
         expect(resultado.sumaBase).toBe(0);
         expect(resultado.sumaGravado).toBe(0);
@@ -9,7 +9,7 @@ describe('Calculo de totales del carrito', () => {
         expect(resultado.sumaTotal).toBe(0);
     });
 
-    it('suma correctamente un solo producto', () => {
+    it('Suma correctamente un solo producto', () => {
         const carrito = [
             { baseCents: 0, gravadoCents: 80000, ivaCents: 12000, totalCents: 92000 },
         ];
@@ -19,7 +19,7 @@ describe('Calculo de totales del carrito', () => {
         expect(resultado.sumaTotal).toBe(92000);
     });
 
-    it('suma correctamente varios productos', () => {
+    it('Suma correctamente varios productos', () => {
         const carrito = [
             { baseCents: 0, gravadoCents: 80000, ivaCents: 12000, totalCents: 92000 },
             { baseCents: 0, gravadoCents: 50000, ivaCents: 7500, totalCents: 57500 },
@@ -31,7 +31,7 @@ describe('Calculo de totales del carrito', () => {
         expect(resultado.sumaTotal).toBe(154100);
     });
 
-    it('el IVA calculado corresponde al 15% del monto gravado', () => {
+    it('El IVA calculado corresponde al 15% del monto gravado', () => {
         const carrito = [
             { baseCents: 0, gravadoCents: 20000, ivaCents: 3000, totalCents: 23000 },
         ];
