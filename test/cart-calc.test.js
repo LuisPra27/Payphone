@@ -1,41 +1,41 @@
-const test = require('node:test');
-const assert = require('node:assert');
 const { calcularTotales } = require('../cart-calc.js');
 
-test('carrito vacio retorna todos los totales en cero', () => {
-    const resultado = calcularTotales([]);
-    assert.strictEqual(resultado.sumaBase, 0);
-    assert.strictEqual(resultado.sumaGravado, 0);
-    assert.strictEqual(resultado.sumaIva, 0);
-    assert.strictEqual(resultado.sumaTotal, 0);
-});
+describe('Calculo de totales del carrito', () => {
+    it('carrito vacio retorna todos los totales en cero', () => {
+        const resultado = calcularTotales([]);
+        expect(resultado.sumaBase).toBe(0);
+        expect(resultado.sumaGravado).toBe(0);
+        expect(resultado.sumaIva).toBe(0);
+        expect(resultado.sumaTotal).toBe(0);
+    });
 
-test('suma correctamente un solo producto', () => {
-    const carrito = [
-        { baseCents: 0, gravadoCents: 80000, ivaCents: 12000, totalCents: 92000 },
-    ];
-    const resultado = calcularTotales(carrito);
-    assert.strictEqual(resultado.sumaGravado, 80000);
-    assert.strictEqual(resultado.sumaIva, 12000);
-    assert.strictEqual(resultado.sumaTotal, 92000);
-});
+    it('suma correctamente un solo producto', () => {
+        const carrito = [
+            { baseCents: 0, gravadoCents: 80000, ivaCents: 12000, totalCents: 92000 },
+        ];
+        const resultado = calcularTotales(carrito);
+        expect(resultado.sumaGravado).toBe(80000);
+        expect(resultado.sumaIva).toBe(12000);
+        expect(resultado.sumaTotal).toBe(92000);
+    });
 
-test('suma correctamente varios productos', () => {
-    const carrito = [
-        { baseCents: 0, gravadoCents: 80000, ivaCents: 12000, totalCents: 92000 },
-        { baseCents: 0, gravadoCents: 50000, ivaCents: 7500, totalCents: 57500 },
-        { baseCents: 0, gravadoCents: 4000, ivaCents: 600, totalCents: 4600 },
-    ];
-    const resultado = calcularTotales(carrito);
-    assert.strictEqual(resultado.sumaGravado, 134000);
-    assert.strictEqual(resultado.sumaIva, 20100);
-    assert.strictEqual(resultado.sumaTotal, 154100);
-});
+    it('suma correctamente varios productos', () => {
+        const carrito = [
+            { baseCents: 0, gravadoCents: 80000, ivaCents: 12000, totalCents: 92000 },
+            { baseCents: 0, gravadoCents: 50000, ivaCents: 7500, totalCents: 57500 },
+            { baseCents: 0, gravadoCents: 4000, ivaCents: 600, totalCents: 4600 },
+        ];
+        const resultado = calcularTotales(carrito);
+        expect(resultado.sumaGravado).toBe(134000);
+        expect(resultado.sumaIva).toBe(20100);
+        expect(resultado.sumaTotal).toBe(154100);
+    });
 
-test('el IVA calculado corresponde al 15% del monto gravado', () => {
-    const carrito = [
-        { baseCents: 0, gravadoCents: 20000, ivaCents: 3000, totalCents: 23000 },
-    ];
-    const resultado = calcularTotales(carrito);
-    assert.strictEqual(resultado.sumaIva, Math.round(resultado.sumaGravado * 0.15));
+    it('el IVA calculado corresponde al 15% del monto gravado', () => {
+        const carrito = [
+            { baseCents: 0, gravadoCents: 20000, ivaCents: 3000, totalCents: 23000 },
+        ];
+        const resultado = calcularTotales(carrito);
+        expect(resultado.sumaIva).toBe(Math.round(resultado.sumaGravado * 0.15));
+    });
 });

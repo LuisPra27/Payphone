@@ -38,8 +38,8 @@ pipeline {
                 echo 'Validando sintaxis PHP (contenedor php:cli)'
                 sh 'docker run --rm --volumes-from "$HOSTNAME" -w "$WORKSPACE" php:8.2-cli php -l response.php'
 
-                echo 'Ejecutando pruebas unitarias de la logica del carrito (Node test runner)'
-                sh 'docker run --rm --volumes-from "$HOSTNAME" -w "$WORKSPACE" node:20-alpine node --test'
+                echo 'Ejecutando pruebas unitarias de la logica del carrito (Jest)'
+                sh 'docker run --rm --volumes-from "$HOSTNAME" -w "$WORKSPACE" node:20-alpine sh -c "npm install && npm test"'
             }
         }
 
