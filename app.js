@@ -9,7 +9,9 @@ const inventario = [
     { id: 7, nombre: "Juego: No Man's Sky", icono: "🚀", baseCents: 0, gravadoCents: 4000, ivaCents: 600, totalCents: 4600 },
     { id: 8, nombre: "PlayStation Plus (12 Meses)", icono: "➕", baseCents: 0, gravadoCents: 8000, ivaCents: 1200, totalCents: 9200 },
     { id: 9, nombre: "Teclado Mecánico RGB", icono: "⌨️", baseCents: 0, gravadoCents: 6000, ivaCents: 900, totalCents: 6900 },
-    { id: 10, nombre: "Mouse Inalámbrico", icono: "🖱️", baseCents: 0, gravadoCents: 4000, ivaCents: 600, totalCents: 4600 }
+    { id: 10, nombre: "Mouse Inalámbrico", icono: "🖱️", baseCents: 0, gravadoCents: 4000, ivaCents: 600, totalCents: 4600 },
+    { id: 10, nombre: "Alfombrilla para Mouse", icono: "🖱️", baseCents: 0, gravadoCents: 4000, ivaCents: 600, totalCents: 4600 }
+
 ];
 
 // 2. Estado del carrito
