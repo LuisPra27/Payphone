@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Payphone",
   "scripts": {
-    "test": "jest"
+    "test": "jest --verbose"
   },
   "devDependencies": {
     "jest": "^29.7.0"
