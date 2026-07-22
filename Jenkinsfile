@@ -28,7 +28,7 @@ pipeline {
                 sh '''
                     rm -rf build
                     mkdir -p build
-                    cp index.html app.js calcularcarrito.js styles.css response.php build/
+                    cp index.html app.js cart-calc.js styles.css response.php build/
                 '''
             }
         }
