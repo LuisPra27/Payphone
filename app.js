@@ -1,7 +1,7 @@
 // 1. Nuestra "Base de datos"
 const inventario = [
     { id: 1, nombre: "Laptop HP Victus", icono: "💻", baseCents: 0, gravadoCents: 80000, ivaCents: 12000, totalCents: 92000 },
-    { id: 2, nombre: "PlayStation 5", icono: "🎮", baseCents: 0, gravadoCents: 50000, ivaCents: 7500, totalCents: 57500 },
+    { id: 2, nombre: "PlayStation 4", icono: "🎮", baseCents: 0, gravadoCents: 50000, ivaCents: 7500, totalCents: 57500 },
     { id: 3, nombre: "Juego: Helldivers 2", icono: "💿", baseCents: 0, gravadoCents: 4000, ivaCents: 600, totalCents: 4600 },
     { id: 4, nombre: "Monitor Gamer 144Hz", icono: "🖥️", baseCents: 0, gravadoCents: 20000, ivaCents: 3000, totalCents: 23000 },
     { id: 5, nombre: "Juego: EA SPORTS FC 26", icono: "⚽", baseCents: 0, gravadoCents: 7000, ivaCents: 1050, totalCents: 8050 },
